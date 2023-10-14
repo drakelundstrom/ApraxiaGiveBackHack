@@ -4,7 +4,9 @@ from langchain.callbacks.manager import (
     AsyncCallbackManagerForChainRun,
     CallbackManagerForChainRun,
 )
-from langchain.chat_models import ChatOpenAI
+from langchain.llms.openai import OpenAI
+
+# from langchain.llms.anthropic import Anthropic
 from langchain.prompts import PromptTemplate
 from langchain.chains.base import Chain
 from langchain.output_parsers import CommaSeparatedListOutputParser
@@ -13,11 +15,15 @@ from langchain.prompts.base import BasePromptTemplate
 from langchain.schema.language_model import BaseLanguageModel
 
 output_parser = CommaSeparatedListOutputParser()
-format_instructions = output_parser.get_format_instructions()
+format_instructions = """
+output should be formatted as a JSON list of objects with the keys 'number' and 'name'.
+ex. [{"number": 1, "name":"do_thing_1"},{"number": 1, "name":"do_thing_2"}]
+"""
 
 create_task_prompt = PromptTemplate(
     template="""
     You are an executive assistant for neurodivergent people.
+    Ensure all instructions are written at an 8th grade reading level.
     Please create a list of simple steps to accomplish the task {task}
     {format_instructions}
   """,
@@ -26,11 +32,7 @@ create_task_prompt = PromptTemplate(
 )
 
 callback = AsyncIteratorCallbackHandler()
-model = ChatOpenAI(
-    streaming=True,
-    verbose=True,
-    callbacks=[callback],
-)
+model = OpenAI(streaming=True, verbose=True, callbacks=[callback], temperature=0.1)
 
 
 class CreateTaskChain(Chain):
