@@ -14,22 +14,22 @@ type AppBoxProps = {
 
 export const AppBox = ({ picture, title, description, redirectRoute }: AppBoxProps): JSX.Element => {
 	return (
-		<AppBoxWrapper>
-			<Link to={redirectRoute}>
+		<Link to={redirectRoute}>
+			<AppBoxWrapper>
 				<AppBoxImage src={picture} alt='footsteps' />
 				<VerticalBox>
 					<TitleText>{title}</TitleText>
 					<DescriptionText>{description}</DescriptionText>
 				</VerticalBox>
-			</Link>
-			{/* <Link to={STEPS_ROUTE}>
+				{/* <Link to={STEPS_ROUTE}>
 				<AppBoxImage src={picture} alt='footsteps' />
 				<VerticalBox>
 					<TitleText>Step By Step</TitleText>
 					<DescriptionText>Breaking down the overwelming challenges</DescriptionText>
 				</VerticalBox>
 			</Link> */}
-		</AppBoxWrapper>
+			</AppBoxWrapper>
+		</Link>
 	)
 }
 
@@ -38,7 +38,7 @@ const AppBoxWrapper = styled.div`
 	justify-content: start;
 	flex-wrap: wrap;
 	background-color: ${LightTheme.background.layerTwo};
-	max-width: 90%;
+	width: 80vw;
 	padding: 1rem;
 	box-shadow: 0px 0px 10px 3px ${addOpacityToColor(BLACK, 0.2)};
 	border-radius: 1rem;
@@ -58,6 +58,7 @@ const TitleText = styled.div`
 	font-size: 4vw;
 	font-weight: 500;
 	color: ${LightTheme.heading.primary};
+	text-align: start;
 	@media only screen and (max-width: 750px) {
 		font-size: 30px;
 	}

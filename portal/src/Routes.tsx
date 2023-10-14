@@ -1,2 +1,2 @@
-export const HOME_ROUTE = "/";
-export const STEPS_ROUTE = "Steps/";
+export const HOME_ROUTE = '/'
+export const STEP_BY_STEP_ROUTE = 'StepByStep/'
