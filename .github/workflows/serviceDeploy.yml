@@ -39,7 +39,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           scope: resourcegroup
-          resourceGroupName: ${{ secrets.AZURE_RG }}
+          resourceGroupName: ApraxiaGiveBackHack
           deploymentMode: incremental
           template: ./infra/main.bicep
           failOnStdErr: true
