@@ -40,8 +40,15 @@ const TitleText = styled.div`
 	font-size: 4vw;
 	font-weight: 500;
 	color: ${LightTheme.heading.primary};
+	@media only screen and (max-width: 750px) {
+		font-size: 30px;
+	}
 `
 const DescriptionText = styled.div`
-	font-size: 1.5vw;
+	font-size: 2vw;
 	color: ${LightTheme.text.primary};
+	text-align: start;
+	@media only screen and (max-width: 750px) {
+		font-size: 15px;
+	}
 `
