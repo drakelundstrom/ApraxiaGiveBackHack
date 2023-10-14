@@ -46,7 +46,7 @@ const AppBoxWrapper = styled.div`
 `
 
 const AppBoxImage = styled.img`
-	height: 15vh;
+	height: 135px;
 `
 const VerticalBox = styled.div`
 	display: flex;
