@@ -23,7 +23,7 @@ jobs:
 
       - name: npm install and build
         run: |
-          cd src/frontend/
+          cd frontend/
           npm install
           npm run build
 
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: frontend-app
-          path: "src/frontend/build"
+          path: "frontend/build"
           if-no-files-found: error
           retention-days: 30
   deploy:
