@@ -1,5 +1,4 @@
 from typing import Any, Dict, List, Optional
-from langchain.callbacks import AsyncIteratorCallbackHandler
 from langchain.callbacks.manager import (
     AsyncCallbackManagerForChainRun,
     CallbackManagerForChainRun,
@@ -28,8 +27,6 @@ create_task_prompt = PromptTemplate(
     input_variables=["task"],
     partial_variables={"format_instructions": format_instructions},
 )
-
-callback = AsyncIteratorCallbackHandler()
 
 
 class CreateTaskChain(Chain):
