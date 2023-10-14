@@ -1,7 +1,8 @@
-FROM python:3.9-slim-bullseye
+FROM python:3.10-slim-bullseye
 
 ENV PYTHONUNBUFFERED True
 ENV APP_HOME /app
+ENV OPENAI_API_KEY ${OPENAI_API_KEY}
 WORKDIR $APP_HOME
 COPY . ./
 

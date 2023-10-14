@@ -4,15 +4,13 @@ from langchain.callbacks.manager import (
     AsyncCallbackManagerForChainRun,
     CallbackManagerForChainRun,
 )
-from langchain.llms.openai import OpenAI
-
-# from langchain.llms.anthropic import Anthropic
 from langchain.prompts import PromptTemplate
 from langchain.chains.base import Chain
 from langchain.output_parsers import CommaSeparatedListOutputParser
 from pydantic import Extra
 from langchain.prompts.base import BasePromptTemplate
 from langchain.schema.language_model import BaseLanguageModel
+from api.chains.model import model
 
 output_parser = CommaSeparatedListOutputParser()
 format_instructions = """
@@ -32,7 +30,6 @@ create_task_prompt = PromptTemplate(
 )
 
 callback = AsyncIteratorCallbackHandler()
-model = OpenAI(streaming=True, verbose=True, callbacks=[callback], temperature=0.1)
 
 
 class CreateTaskChain(Chain):

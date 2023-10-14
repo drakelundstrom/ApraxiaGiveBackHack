@@ -6,7 +6,7 @@ uri = os.environ.get(
     "DATABASE_URL",
     f"sqlite:///{os.path.join(os.path.dirname(__file__), 'dev.sqlite3')}",
 )
-engine = create_engine(uri, connect_args={"check_same_thread": False})
+engine = create_engine(uri)
 
 SQLModel.metadata.create_all(engine)
 
