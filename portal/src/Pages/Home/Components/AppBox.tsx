@@ -1,23 +1,41 @@
 import { BLACK, addOpacityToColor } from '../../../Style/Colors'
 import { LightTheme } from '../../../Style/Themes/LightTheme'
 import styled from 'styled-components'
-import picture from '../../../assets/footsteps-sharp.svg'
+// import picture from '../../../assets/footsteps-sharp.svg'
+// import { STEPS_ROUTE } from '../../../Routes'
+import { Link } from 'react-router-dom'
 
-export const AppBox = (): JSX.Element => {
+type AppBoxProps = {
+	readonly redirectRoute: string
+	readonly picture: string
+	readonly title: string
+	readonly description: string
+}
+
+export const AppBox = ({ picture, title, description, redirectRoute }: AppBoxProps): JSX.Element => {
 	return (
 		<AppBoxWrapper>
-			<AppBoxImage src={picture} alt='footsteps' />
-			<VerticalBox>
-				<TitleText>Step By Step</TitleText>
-				<DescriptionText>Breaking down the overwelming challenges</DescriptionText>
-			</VerticalBox>
+			<Link to={redirectRoute}>
+				<AppBoxImage src={picture} alt='footsteps' />
+				<VerticalBox>
+					<TitleText>{title}</TitleText>
+					<DescriptionText>{description}</DescriptionText>
+				</VerticalBox>
+			</Link>
+			{/* <Link to={STEPS_ROUTE}>
+				<AppBoxImage src={picture} alt='footsteps' />
+				<VerticalBox>
+					<TitleText>Step By Step</TitleText>
+					<DescriptionText>Breaking down the overwelming challenges</DescriptionText>
+				</VerticalBox>
+			</Link> */}
 		</AppBoxWrapper>
 	)
 }
 
 const AppBoxWrapper = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: start;
 	flex-wrap: wrap;
 	background-color: ${LightTheme.background.layerTwo};
 	max-width: 90%;
