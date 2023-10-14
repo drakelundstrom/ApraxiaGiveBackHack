@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DefaultPage } from "./Pages/Default/DefaultPage";
 import { HomePage } from "./Pages/Home/HomePage";
-import { StepsPage } from "./Pages/Steps/StepsPage";
+import { StepsPage } from "./Pages/StepByStep/StepByStepPage";
 import { HOME_ROUTE, STEPS_ROUTE } from "./Routes";
 
 export const AppRouter = (): JSX.Element => (
