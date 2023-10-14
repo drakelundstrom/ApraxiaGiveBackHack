@@ -17,7 +17,7 @@ export const AppBox = (): JSX.Element => {
 
 const AppBoxWrapper = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	flex-wrap: wrap;
 	background-color: ${LightTheme.background.layerTwo};
 	max-width: 90%;
@@ -33,6 +33,7 @@ const AppBoxImage = styled.img`
 const VerticalBox = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: start;
 `
 
 const TitleText = styled.div`
@@ -41,6 +42,6 @@ const TitleText = styled.div`
 	color: ${LightTheme.heading.primary};
 `
 const DescriptionText = styled.div`
-	font-size: 1.5;
+	font-size: 1.5vw;
 	color: ${LightTheme.text.primary};
 `
