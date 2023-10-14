@@ -1,12 +1,8 @@
 import {
 	DARK_NAVY,
 	ROYAL_BLUE,
-	ROYAL_PURPLE,
 	NEUTRAL_BLUE,
-	GOLD,
-	SILVER,
 	CREAM,
-	LIGHT_PURPLE,
 	BROWN,
 	BURNT_ORANGE,
 	BRIGHT_RED,
@@ -22,7 +18,6 @@ import {
 	NAVY_BLUE,
 } from '../Colors'
 
-import { Theme } from './Theme'
 export const LightTheme = {
 	name: 'LightTheme',
 	background: {
