@@ -1,0 +1,65 @@
+name: deploy backend
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+env:
+  DOTNET_VERSION: "5.0.x"
+  AZURE_WEBAPP_NAME: BugBustersBackEnd
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: setup dotnet core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{env.DOTNET_VERSION}}
+
+      - name: dotnet build on ${{env.DOTNET_VERSION}}
+        run: |
+          cd src/api/
+          dotnet restore
+          dotnet build -- configuration Release
+
+      - name: dotnet publish
+        run: |
+          cd src/api/
+          dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/hack_backend_api
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: backend-api
+          path: ${{env.DOTNET_ROOT}}/hack_backend_api
+          if-no-files-found: error
+          retention-days: 30
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: azure/login@v1.1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: downloading artifact
+        uses: actions/download-artifact@v2
+
+      - name: deploy to azure web app
+        id: deploy-to-web-app
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{env.AZURE_WEBAPP_NAME}}
+          package: ./backend-api
+          app-settings-json: |
+            [
+                {
+                    "name": "TEST_STRING",
+                    "value": "${{ secrets.OPEN_AI_TOKEN }}",
+                    "slotSetting": false
+                }
+            ]

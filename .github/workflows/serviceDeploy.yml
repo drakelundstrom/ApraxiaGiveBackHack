@@ -1,0 +1,45 @@
+name: deploy service
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/serviceDeploy.yml"
+      - "infra/*"
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./infra
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Az CLI login
+        uses: azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Logout
+        run: |
+          az logout
+  build:
+    name: build-infra
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: deploy
+        uses: azure/arm-deploy@v1
+        with:
+          scope: resourcegroup
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          deploymentMode: incremental
+          template: ./infra/main.bicep
+          failOnStdErr: true
