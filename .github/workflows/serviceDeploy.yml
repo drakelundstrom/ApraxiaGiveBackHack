@@ -1,12 +1,12 @@
 name: deploy service
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/serviceDeploy.yml"
-      - "infra/*"
+  # push:
+  #   branches:
+  #     - "main"
+  #   paths:
+  #     - ".github/workflows/serviceDeploy.yml"
+  #     - "infra/*"
 jobs:
   validate:
     name: validate

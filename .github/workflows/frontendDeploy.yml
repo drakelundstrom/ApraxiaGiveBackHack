@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
     paths:
-      - "portal/**"
+      - "frontEnd/**"
 env:
   NODE_VERSION: "14.x"
   AZURE_WEBAPP_NAME: ApraxiaFrontEnd
@@ -23,7 +23,7 @@ jobs:
 
       - name: npm install and build
         run: |
-          cd portal/
+          cd frontEnd/
           npm install
           npm run build
 
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: frontend-app
-          path: "portal/dist"
+          path: "frontEnd/dist"
           if-no-files-found: error
           retention-days: 30
   deploy:
