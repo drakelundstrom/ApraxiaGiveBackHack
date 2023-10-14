@@ -5,12 +5,12 @@ import { DARK_NAVY, ROYAL_BLUE, ROYAL_PURPLE, NEUTRAL_BLUE,
     BRIGHT_RED, OFF_WHITE, BLACK, BURGUNDY, WHITE, LIGHT_TURQUOISE, GREY, LIGHT_BROWN, EGGSHELL, DARK_GREY, NAVY_BLUE } from '../Colors';
   
   import { Theme } from './Theme';
-  export const darkBlueTheme = () : Theme => ({
-      name : 'DarkBlueTheme',
+  export const LightTheme = {
+      name : 'LightTheme',
     background: {
       layerOne: EGGSHELL,
-      layerTwo: OFF_WHITE,
-      layerThree: CREAM,
+      layerTwo: CREAM,
+      layerThree: OFF_WHITE,
       layerFour: NEUTRAL_BLUE,
     },
     heading: {
@@ -27,17 +27,17 @@ import { DARK_NAVY, ROYAL_BLUE, ROYAL_PURPLE, NEUTRAL_BLUE,
   
     button: {
       border: {
-        primary: OFF_WHITE,
+        primary: GREY,
         secondary: BROWN,
         negative: BURGUNDY,
       },
       text: {
-        primary: OFF_WHITE,
+        primary: DARK_NAVY,
         secondary: BROWN,
         negative: WHITE,
       },
       background: {
-        primary: LIGHT_PURPLE,
+        primary: CREAM,
         secondary: LIGHT_TURQUOISE,
         negative: BRIGHT_RED,
       },
@@ -48,4 +48,4 @@ import { DARK_NAVY, ROYAL_BLUE, ROYAL_PURPLE, NEUTRAL_BLUE,
       white: WHITE,
       grey: GREY,
     },
-  })
+  }

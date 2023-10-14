@@ -1,27 +1,24 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../../Components/Button";
+import { LightTheme } from "../../Style/Themes/LightTheme";
 
 export const DefaultPage = (): JSX.Element => {
   return (
-    <Box>
-      <Button >Home</Button>
-      
-      <Page>
+    <Background>
         <Outlet />
-      </Page>
-    </Box>
+    </Background>
   );
 };
 
-const Page = styled.div`
+
+
+const Background = styled.div`
   display: flex;
+  background-color: ${LightTheme.background.layerOne};
   align-items: center;
   justify-content: center;
+  min-width: 100vw;
   min-height: 100vh;
-  flex-direction: column;
-`;
-
-const Box = styled.div`
-  display: flex;
+  color: ${LightTheme.text.primary};
 `;
