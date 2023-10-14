@@ -36,11 +36,11 @@ const VerticalBox = styled.div`
 `
 
 const TitleText = styled.div`
-	font-size: 3rem;
+	font-size: 4vw;
 	font-weight: 500;
 	color: ${LightTheme.heading.primary};
 `
 const DescriptionText = styled.div`
-	font-size: 2rem;
+	font-size: 1.5;
 	color: ${LightTheme.text.primary};
 `
