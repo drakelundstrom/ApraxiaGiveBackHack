@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { Button } from "../../Components/Button";
 
 export const DefaultPage = (): JSX.Element => {
-  
-
   return (
     <Box>
       <Button >Home</Button>
+      
       <Page>
         <Outlet />
       </Page>
