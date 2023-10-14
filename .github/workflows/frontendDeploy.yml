@@ -1,11 +1,11 @@
 name: deploy frontend
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - "main"
-  #   paths:
-  #     - "frontend/**"
+  push:
+    branches:
+      - "main"
+    paths:
+      - "frontend/**"
 env:
   NODE_VERSION: "14.x"
   AZURE_WEBAPP_NAME: ApraxiaFrontEnd
