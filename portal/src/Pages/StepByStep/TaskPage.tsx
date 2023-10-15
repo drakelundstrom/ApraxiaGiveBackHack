@@ -33,7 +33,7 @@ export const TaskPage = (): JSX.Element => {
 		setTaskInFocus({
 			id: -1,
 			steps: [],
-			name: taskRequest.task,
+			name: taskRequest.name,
 		})
 		const newTask: TaskResponse = await generateSteps(taskRequest)
 		setTaskInFocus(newTask)
@@ -58,8 +58,8 @@ export const TaskPage = (): JSX.Element => {
 							})}
 						>
 							<TitleText>Describe the task that you want to have broken down into steps:</TitleText>
-							<input type='text' {...register('task', { required: true, maxLength: 200 })} />
-							<p>{errors.task && 'This field has a limit of 200 characters.'}</p>
+							<input type='text' {...register('name', { required: true, maxLength: 200 })} />
+							<p>{errors.name && 'This field has a limit of 200 characters.'}</p>
 
 							<input type='submit' />
 							<Button onClick={() => setIsMakingTask(false)}>Cancel</Button>
@@ -112,7 +112,7 @@ const AppBoxImage = styled.img`
 	}
 `
 
-const TaskBoxWrapper = styled.div`
+export const TaskBoxWrapper = styled.div`
 	display: flex;
 	justify-content: start;
 	align-items: center;
