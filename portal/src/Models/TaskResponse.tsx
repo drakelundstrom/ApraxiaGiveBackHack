@@ -1,8 +1,7 @@
-import { Step } from "./Step";
+import { Step } from './Step'
 
 export type TaskResponse = {
-    readonly id: string;
-    readonly task: number;
-    readonly steps: Step[];
-  };
-  
+	readonly id: string
+	readonly task: string
+	readonly steps: Step[]
+}
