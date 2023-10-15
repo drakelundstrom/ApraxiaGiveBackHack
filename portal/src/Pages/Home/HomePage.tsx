@@ -15,8 +15,11 @@ export const HomePage = (): JSX.Element => {
 			<VerticalBox>
 				<HeaderBox>
 					<Header>Home</Header>
+					<Header></Header>
+					<HeaderClick href='http://eepurl.com/ingwrE'>Get Updates!</HeaderClick>
 					<ProfileImage src={picture} alt='profile picture' />
 				</HeaderBox>
+
 				<AppBox title='Step by Step' description='Breaking down overwelming challenges' redirectRoute={STEP_BY_STEP_ROUTE} picture={StepByStepIcon} />
 				<AppBox title='Decisions' description='Friendly help making decisions' redirectRoute={DECISIONS_ROUTE} picture={DecisionsIcon} />
 				<AppBox title='Finance Genie' description='(Not yet implimented): Checking if purchases will break the bank' redirectRoute={''} picture={eigthBallIcon} />
@@ -28,6 +31,14 @@ export const HomePage = (): JSX.Element => {
 }
 
 const Header = styled.h1`
+	font-size: 3em;
+`
+
+const HeaderClick = styled.a`
+	cursor: pointer;
+	border: solid 2px ${LightTheme.button.border.primary};
+	background-color: ${LightTheme.button.background.primary};
+	border-radius: 5px;
 	font-size: 3em;
 `
 
