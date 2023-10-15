@@ -49,42 +49,45 @@ export const DecisionsPage = (): JSX.Element => {
 			</Link>
 
 			<form
-				onSubmit={handleSubmit((decisionRequest) => {
-					console.log(decisionRequest)
-					makeNewDecisions(decisionRequest)
+				onSubmit={handleSubmit((formData) => {
+					console.log(formData)
+					makeNewDecisions(formData)
 				})}
 			>
 				<StyledForm>
 					<TopText>Making decisions is hard. Tell us about it:</TopText>
-					<DescriptionText>What is the situation?</DescriptionText>
-					<input type='text' {...register('situation')} />
-					<p>{errors.situation && 'This field has a limit of 200 characters.'}</p>
-
-					<DescriptionText>What is other context we should know?</DescriptionText>
-					<input type='text' placeholder='optional' {...register('context', { maxLength: 200 })} />
-					<p>{errors.context && 'This field has a limit of 200 characters.'}</p>
+					<InputWrapperBox>
+						<DescriptionText>What is the situation?</DescriptionText>
+						<input type='text' {...register('situation', { required: true, maxLength: 1000 })} />
+						<p>{errors.situation && 'This field has a limit of 1000 characters.'}</p>
+					</InputWrapperBox>
+					<InputWrapperBox>
+						<DescriptionText>What information should we take into consideration when making the decision?</DescriptionText>
+						<input type='text' placeholder='optional' {...register('context', { maxLength: 1000 })} />
+						<p>{errors.context && 'This field has a limit of 1000 characters.'}</p>
+					</InputWrapperBox>
 					<HorizontalBox>
 						<OptionBox>
 							<DescriptionText>Option 1:</DescriptionText>
-							<input type='text' placeholder='optional' {...register('option1', { maxLength: 200 })} />
-							<p>{errors.option1 && 'This field has a limit of 200 characters.'}</p>
+							<input type='text' placeholder='optional' {...register('option1', { maxLength: 1000 })} />
+							<p>{errors.option1 && 'This field has a limit of 1000 characters.'}</p>
 						</OptionBox>
 						<OptionBox>
 							<DescriptionText>Option 2:</DescriptionText>
-							<input type='text' placeholder='optional' {...register('option2', { maxLength: 200 })} />
-							<p>{errors.option2 && 'This field has a limit of 200 characters.'}</p>
+							<input type='text' placeholder='optional' {...register('option2', { maxLength: 1000 })} />
+							<p>{errors.option2 && 'This field has a limit of 1000 characters.'}</p>
 						</OptionBox>
 					</HorizontalBox>
 					<HorizontalBox>
 						<OptionBox>
 							<DescriptionText>Option 3:</DescriptionText>
-							<input type='text' placeholder='optional' {...register('option3', { maxLength: 200 })} />
-							<p>{errors.option3 && 'This field has a limit of 200 characters.'}</p>
+							<input type='text' placeholder='optional' {...register('option3', { maxLength: 1000 })} />
+							<p>{errors.option3 && 'This field has a limit of 1000 characters.'}</p>
 						</OptionBox>
 						<OptionBox>
 							<DescriptionText>Option 4:</DescriptionText>
-							<input type='text' placeholder='optional' {...register('option4', { maxLength: 200 })} />
-							<p>{errors.option4 && 'This field has a limit of 200 characters.'}</p>
+							<input type='text' placeholder='optional' {...register('option4', { maxLength: 1000 })} />
+							<p>{errors.option4 && 'This field has a limit of 1000 characters.'}</p>
 						</OptionBox>
 					</HorizontalBox>
 					<input type='submit' />
@@ -183,6 +186,12 @@ const OptionBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 40%;
+`
+
+const InputWrapperBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 `
 // const StyledTextInput = styled.div`
 // 	background-color: ${LightTheme.background.layerOne};
