@@ -15,7 +15,7 @@ output_parser = CommaSeparatedListOutputParser()
 format_instructions = """
 output should be formatted as a JSON objects with the keys 'decision' and 'justification'.
 justification should be a list of simple reasons written in between 2 and 5 words.
-ex. {"decision": "do_thing_1", "justification":["Reason 1", "Reason 2"]}
+ex. {"decision": "Do thing 1", "justification":["Reason 1", "Reason 2"]}
 """
 
 create_task_prompt = PromptTemplate(
