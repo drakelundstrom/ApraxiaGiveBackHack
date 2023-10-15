@@ -41,21 +41,21 @@ export const StepPage = ({ taskInFocus, clearTaskInFocus }: StepPageProps): JSX.
 		<>
 			<BackIcon src={returnIcon} alt={'return to tasks page'} onClick={() => clearTaskInFocus()} />
 			{taskInFocus.id == -1 ? (
-				<VerticalBox>
+				<StepBox>
 					<LoadingText>Generating steps for following task:</LoadingText>
 					<LoadingText>{taskInFocus.name}</LoadingText>
 
 					<AppBoxImage src={loadingIcon} alt={'loading icon'} />
-				</VerticalBox>
+				</StepBox>
 			) : (
-				<VerticalBox>
+				<StepBox>
 					<LoadingText>{taskInFocus.steps[currentStep].name}</LoadingText>
 					<AppBoxImage src={currentShape} alt={'random shape for decoration'} />
 					<HorizontalBox>
 						{currentStep !== 0 && <ArrowImages src={arrowBackIcon} alt={'arrow back'} onClick={() => setCurrentStep(currentStep - 1)} />}
 						{currentStep !== taskInFocus.steps.length - 1 && <ArrowImages src={arrowForwardIcon} alt={'arrow forward'} onClick={() => setCurrentStep(currentStep + 1)} />}
 					</HorizontalBox>
-				</VerticalBox>
+				</StepBox>
 			)}
 		</>
 	)
@@ -77,7 +77,7 @@ const LoadingText = styled.div`
 		font-size: 30px;
 	}
 `
-const VerticalBox = styled.div`
+const StepBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -96,13 +96,14 @@ const AppBoxImage = styled.img`
 	}
 `
 const HorizontalBox = styled.div`
+	width: 100%;
+	justify-content: space-evenly;
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
 `
 
 const ArrowImages = styled.img`
-	height: 5vw;
+	height: 6vw;
+	min-height: 80px;
 	:hover {
 		cursor: pointer;
 	}
