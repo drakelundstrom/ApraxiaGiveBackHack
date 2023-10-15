@@ -4,7 +4,6 @@ import { LightTheme } from '../../Style/Themes/LightTheme'
 import { AppBox } from './Components/AppBox'
 import { DECISIONS_ROUTE, STEP_BY_STEP_ROUTE } from '../../Routes'
 import StepByStepIcon from '../../assets/StepByStepIcon.svg'
-import { DecisionsPage } from '../Decisions/DecisionsPage'
 
 export const HomePage = (): JSX.Element => {
 	return (

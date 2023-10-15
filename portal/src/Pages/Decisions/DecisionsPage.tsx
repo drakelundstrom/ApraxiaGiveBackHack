@@ -4,7 +4,7 @@ import { BLACK, addOpacityToColor } from '../../Style/Colors'
 import homeIcon from '../../assets/homeIcon.svg'
 import { Link } from 'react-router-dom'
 import { DecisionFormInput } from '../../Models/DecisionFormInput'
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { DecisionResponse } from '../../Models/DecisionResponse'
 import loadingIcon from '../../assets/loadingIcon.gif'
@@ -184,14 +184,14 @@ const OptionBox = styled.div`
 	flex-direction: column;
 	width: 40%;
 `
-const StyledTextInput = styled.div`
-	background-color: ${LightTheme.background.layerOne};
-	color: ${LightTheme.text.primary};
-	height: 4vh;
-	border-radius: 10px;
-	border: 1px solid ${LightTheme.button.border.primary};
-	font-size: 1.2vw;
-	@media only screen and (max-width: 750px) {
-		font-size: 12px;
-	}
-`
+// const StyledTextInput = styled.div`
+// 	background-color: ${LightTheme.background.layerOne};
+// 	color: ${LightTheme.text.primary};
+// 	height: 4vh;
+// 	border-radius: 10px;
+// 	border: 1px solid ${LightTheme.button.border.primary};
+// 	font-size: 1.2vw;
+// 	@media only screen and (max-width: 750px) {
+// 		font-size: 12px;
+// 	}
+// `
