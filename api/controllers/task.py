@@ -3,7 +3,7 @@ from api.chains import CreateTaskChain
 from api import app
 from api.models import TaskRequest
 from json import loads
-from fastapi import Depends
+from fastapi import Depends, HTTPException
 from sqlmodel import Session, select
 from api.database import get_db
 from api.models import Step, Task, TaskRead, TaskReadWithSteps
@@ -15,12 +15,18 @@ async def create_task(
 ) -> TaskReadWithSteps:
     chain = CreateTaskChain()
     result = None
-    while not result:
+    retries = 0
+    while not result and retries < 5:
         try:
             result = loads(chain.run({"task": task.name}))
         except Exception as e:
             result = None
+            retries += 1
             print(e)
+    if result is None:
+        raise HTTPException(
+            400, "Model could not come up with steps, please try again."
+        )
     task = Task(**task.dict())
     sess.add(task)
     sess.commit()
