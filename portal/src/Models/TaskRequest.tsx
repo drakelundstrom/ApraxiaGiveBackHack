@@ -1,3 +1,3 @@
 export type TaskRequest = {
-    readonly task: string;
+	readonly name: string
 }

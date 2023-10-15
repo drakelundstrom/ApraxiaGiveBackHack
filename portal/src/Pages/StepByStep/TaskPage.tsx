@@ -82,7 +82,6 @@ export const TaskPage = (): JSX.Element => {
 										<TitleText>{task.name}</TitleText>
 									</TaskBoxWrapper>
 								))}
-								<TaskBoxWrapper></TaskBoxWrapper>
 							</VerticalBox>
 						</>
 					)}
