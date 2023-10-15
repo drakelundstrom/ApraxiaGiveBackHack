@@ -66,9 +66,11 @@ export const TaskPage = (): JSX.Element => {
 						</form>
 					) : (
 						<>
+							{/* <SpacingBox> */}
 							<Link to={'/'}>
 								<HomeIcon src={homeIcon} alt='home icon' />
 							</Link>
+							{/* </SpacingBox> */}
 							<VerticalBox>
 								<MarginBox>
 									<TitleText>What task do you want to break down?</TitleText>
@@ -92,6 +94,10 @@ export const TaskPage = (): JSX.Element => {
 		</>
 	)
 }
+
+// const SpacingBox = styled.div`
+// 	margin-top: 1vh;
+// `
 
 const HomeIcon = styled.img`
 	height: 8vh;

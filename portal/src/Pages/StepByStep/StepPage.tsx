@@ -67,7 +67,7 @@ export const StepPage = ({ taskInFocus, clearTaskInFocus }: StepPageProps): JSX.
 
 const BackIcon = styled.img`
 	height: 8vh;
-	position: relative;
+	position: absolute;
 	left: 1rem;
 	top: 1rem;
 `
