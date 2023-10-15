@@ -4,6 +4,10 @@ import { LightTheme } from '../../Style/Themes/LightTheme'
 import { AppBox } from './Components/AppBox'
 import { DECISIONS_ROUTE, STEP_BY_STEP_ROUTE } from '../../Routes'
 import StepByStepIcon from '../../assets/StepByStepIcon.svg'
+import eigthBallIcon from '../../assets/eigthBallIcon.svg'
+import FoodIcon from '../../assets/FoodIcon.svg'
+import EyeIcon from '../../assets/EyeIcon.svg'
+import DecisionsIcon from '../../assets/DecisionsIcon.svg'
 
 export const HomePage = (): JSX.Element => {
 	return (
@@ -14,10 +18,10 @@ export const HomePage = (): JSX.Element => {
 					<ProfileImage src={picture} alt='profile picture' />
 				</HeaderBox>
 				<AppBox title='Step by Step' description='Breaking down overwelming challenges' redirectRoute={STEP_BY_STEP_ROUTE} picture={StepByStepIcon} />
-				<AppBox title='Pick One' description='Friendly help making decisions' redirectRoute={DECISIONS_ROUTE} picture={StepByStepIcon} />
-				<AppBox title='Magic 8 Ball' description='(Not yet implimented): Checking if purchases will break the bank' redirectRoute={''} picture={StepByStepIcon} />
-				<AppBox title='Food with Friends' description='(Not yet implimented): Finding restaurants that meet diet and sensory needs' redirectRoute={''} picture={StepByStepIcon} />
-				<AppBox title='Danger Will Robinson' description='(Not yet implimented): Automatic SOS call in overstimulating enviroments' redirectRoute={''} picture={StepByStepIcon} />
+				<AppBox title='Decisions' description='Friendly help making decisions' redirectRoute={DECISIONS_ROUTE} picture={DecisionsIcon} />
+				<AppBox title='Finance Genie' description='(Not yet implimented): Checking if purchases will break the bank' redirectRoute={''} picture={eigthBallIcon} />
+				<AppBox title='Outings' description='(Not yet implimented): Finding restaurants that meet diet and sensory needs' redirectRoute={''} picture={FoodIcon} />
+				<AppBox title='Overload' description='(Not yet implimented): Automatic SOS call in overstimulating enviroments' redirectRoute={''} picture={EyeIcon} />
 			</VerticalBox>
 		</>
 	)
