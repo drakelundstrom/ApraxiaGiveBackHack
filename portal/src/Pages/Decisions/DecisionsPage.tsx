@@ -57,33 +57,33 @@ export const DecisionsPage = (): JSX.Element => {
 				<StyledForm>
 					<TopText>Making decisions is hard. Tell us about it:</TopText>
 					<DescriptionText>What is the situation?</DescriptionText>
-					<StyledTextInput type='text' {...register('situation')} />
+					<input type='text' {...register('situation')} />
 					<p>{errors.situation && 'This field has a limit of 200 characters.'}</p>
 
 					<DescriptionText>What is other context we should know?</DescriptionText>
-					<StyledTextInput type='text' placeholder='optional' {...register('context', { maxLength: 200 })} />
+					<input type='text' placeholder='optional' {...register('context', { maxLength: 200 })} />
 					<p>{errors.context && 'This field has a limit of 200 characters.'}</p>
 					<HorizontalBox>
 						<OptionBox>
 							<DescriptionText>Option 1:</DescriptionText>
-							<StyledTextInput type='text' placeholder='optional' {...register('option1', { maxLength: 200 })} />
+							<input type='text' placeholder='optional' {...register('option1', { maxLength: 200 })} />
 							<p>{errors.option1 && 'This field has a limit of 200 characters.'}</p>
 						</OptionBox>
 						<OptionBox>
 							<DescriptionText>Option 2:</DescriptionText>
-							<StyledTextInput type='text' placeholder='optional' {...register('option2', { maxLength: 200 })} />
+							<input type='text' placeholder='optional' {...register('option2', { maxLength: 200 })} />
 							<p>{errors.option2 && 'This field has a limit of 200 characters.'}</p>
 						</OptionBox>
 					</HorizontalBox>
 					<HorizontalBox>
 						<OptionBox>
 							<DescriptionText>Option 3:</DescriptionText>
-							<StyledTextInput type='text' placeholder='optional' {...register('option3', { maxLength: 200 })} />
+							<input type='text' placeholder='optional' {...register('option3', { maxLength: 200 })} />
 							<p>{errors.option3 && 'This field has a limit of 200 characters.'}</p>
 						</OptionBox>
 						<OptionBox>
 							<DescriptionText>Option 4:</DescriptionText>
-							<StyledTextInput type='text' placeholder='optional' {...register('option4', { maxLength: 200 })} />
+							<input type='text' placeholder='optional' {...register('option4', { maxLength: 200 })} />
 							<p>{errors.option4 && 'This field has a limit of 200 characters.'}</p>
 						</OptionBox>
 					</HorizontalBox>
@@ -184,7 +184,7 @@ const OptionBox = styled.div`
 	flex-direction: column;
 	width: 40%;
 `
-const StyledTextInput = styled.input`
+const StyledTextInput = styled.div`
 	background-color: ${LightTheme.background.layerOne};
 	color: ${LightTheme.text.primary};
 	height: 4vh;
