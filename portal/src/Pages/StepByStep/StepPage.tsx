@@ -40,9 +40,10 @@ export const StepPage = ({ taskInFocus, clearTaskInFocus }: StepPageProps): JSX.
 
 	return (
 		<>
-			<BackIcon src={returnIcon} alt={'return to tasks page'} onClick={() => clearTaskInFocus()} />
 			{taskInFocus.id == -1 ? (
 				<StepBox>
+					<BackIcon src={returnIcon} alt={'return to tasks page'} onClick={() => clearTaskInFocus()} />
+
 					<LoadingText>Generating steps for following task:</LoadingText>
 					<LoadingText>{taskInFocus.name}</LoadingText>
 
@@ -50,6 +51,8 @@ export const StepPage = ({ taskInFocus, clearTaskInFocus }: StepPageProps): JSX.
 				</StepBox>
 			) : (
 				<StepBox>
+					<BackIcon src={returnIcon} alt={'return to tasks page'} onClick={() => clearTaskInFocus()} />
+
 					<LoadingText>{taskInFocus.steps[currentStep].name}</LoadingText>
 					<AppBoxImage src={currentShape} alt={'random shape for decoration'} />
 					<HorizontalBox>
@@ -64,7 +67,7 @@ export const StepPage = ({ taskInFocus, clearTaskInFocus }: StepPageProps): JSX.
 
 const BackIcon = styled.img`
 	height: 8vh;
-	position: absolute;
+	position: relative;
 	left: 1rem;
 	top: 1rem;
 `
