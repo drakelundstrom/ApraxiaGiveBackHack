@@ -24,10 +24,8 @@ export const SKY_BLUE = '#87CEEB'
 export const NEUTRAL_BLUE = '#3E00FF'
 export const LIGHT_GREEN = '#B5FFD9'
 export const LIGHT_PURPLE = '#A865C9'
+export const DECISION_BLUE = '#546EF3'
 
 export const GREY = '#CCCCCC'
 
-
-
-
-export const addOpacityToColor = (hexCode: string, opacacy: number): string => hexCode + Math.round(opacacy * 255).toString(16);
+export const addOpacityToColor = (hexCode: string, opacacy: number): string => hexCode + Math.round(opacacy * 255).toString(16)

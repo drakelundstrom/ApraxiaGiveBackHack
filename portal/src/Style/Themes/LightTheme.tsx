@@ -16,6 +16,7 @@ import {
 	EGGSHELL,
 	DARK_GREY,
 	NAVY_BLUE,
+	DECISION_BLUE,
 } from '../Colors'
 
 export const LightTheme = {
@@ -32,7 +33,7 @@ export const LightTheme = {
 	},
 	text: {
 		primary: DARK_GREY,
-		secondary: GREY,
+		secondary: DECISION_BLUE,
 		tertiary: LIGHT_BROWN,
 		quaternary: BURNT_ORANGE,
 		negative: BRIGHT_RED,
