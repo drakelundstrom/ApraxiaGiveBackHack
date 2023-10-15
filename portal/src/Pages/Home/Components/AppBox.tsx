@@ -21,13 +21,6 @@ export const AppBox = ({ picture, title, description, redirectRoute }: AppBoxPro
 					<TitleText>{title}</TitleText>
 					<DescriptionText>{description}</DescriptionText>
 				</VerticalBox>
-				{/* <Link to={STEPS_ROUTE}>
-				<AppBoxImage src={picture} alt='footsteps' />
-				<VerticalBox>
-					<TitleText>Step By Step</TitleText>
-					<DescriptionText>Breaking down the overwelming challenges</DescriptionText>
-				</VerticalBox>
-			</Link> */}
 			</AppBoxWrapper>
 		</Link>
 	)
