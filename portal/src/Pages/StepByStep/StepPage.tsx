@@ -20,6 +20,7 @@ import shape8 from '../../assets/stepShapes/shape8.svg'
 import shape9 from '../../assets/stepShapes/shape9.svg'
 import shape10 from '../../assets/stepShapes/shape10.svg'
 import shape11 from '../../assets/stepShapes/shape11.svg'
+import { BLACK, addOpacityToColor } from '../../Style/Colors'
 
 const shapeArray = [shape0, shape1, shape2, shape3, shape4, shape5, shape6, shape7, shape8, shape9, shape10, shape11]
 
@@ -82,12 +83,14 @@ const StepBox = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
-	height: 80vh;
+	height: 75vh;
 	width: 80vw;
+	margin-top: 5vh;
 	max-width: 800px;
 	background-color: ${LightTheme.background.layerTwo};
 	border-radius: 30px;
 	padding: 2rem;
+	box-shadow: 0px 0px 10px 3px ${addOpacityToColor(BLACK, 0.2)};
 `
 const AppBoxImage = styled.img`
 	height: 40vmin;
