@@ -25,4 +25,4 @@ class Decision(SQLModel):
 
 class DecisionResponse(SQLModel):
     decision: str
-    justificaion: List[str]
+    justification: List[str]
