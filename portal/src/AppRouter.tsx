@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { DefaultPage } from './Pages/Default/DefaultPage'
 import { HomePage } from './Pages/Home/HomePage'
-import { StepsPage } from './Pages/StepByStep/TaskPage'
+import { TaskPage } from './Pages/StepByStep/TaskPage'
 import { HOME_ROUTE, STEP_BY_STEP_ROUTE } from './Routes'
 
 export const AppRouter = (): JSX.Element => (
@@ -9,7 +9,7 @@ export const AppRouter = (): JSX.Element => (
 		<Routes>
 			<Route path={HOME_ROUTE} element={<DefaultPage />}>
 				<Route path='' element={<HomePage />} />
-				<Route path={`${STEP_BY_STEP_ROUTE}`} element={<StepsPage />} />
+				<Route path={`${STEP_BY_STEP_ROUTE}`} element={<TaskPage />} />
 				<Route
 					path='*'
 					element={

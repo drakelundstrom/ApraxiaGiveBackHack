@@ -10,59 +10,86 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { TaskRequest } from '../../Models/TaskRequest'
 import { Button } from '../../Components/Button'
+import { generateSteps } from '../../Services/TaskService'
+import { StepPage } from './StepPage'
+import { SampleTask } from './Components/sampleTask'
 
-export const StepsPage = (): JSX.Element => {
-	const tasks: TaskResponse[] = []
-	// const [isLoading, setIsLoading] = useState<boolean>(false)
+export const TaskPage = (): JSX.Element => {
+	// const tasks: TaskResponse[] = []
+	const [tasks, setTasks] = useState<TaskResponse[]>(SampleTask)
 	const [isMakingTask, setIsMakingTask] = useState<boolean>(false)
+	const [taskInFocus, setTaskInFocus] = useState<TaskResponse>({
+		id: -1,
+		steps: [],
+		name: '',
+	})
 	const {
 		handleSubmit,
 		register,
 		formState: { errors },
 	} = useForm<TaskRequest>()
-	const makeNewTask = (taskRequest: TaskRequest) => {
-		setIsMakingTask(true)
+	const makeNewTask = async (taskRequest: TaskRequest) => {
+		setIsMakingTask(false)
+		setTaskInFocus({
+			id: -1,
+			steps: [],
+			name: taskRequest.task,
+		})
+		const newTask: TaskResponse = await generateSteps(taskRequest)
+		setTaskInFocus(newTask)
+		setTasks([newTask, ...tasks])
+	}
+	const clearTaskInFocus = () => {
+		setTaskInFocus({
+			id: -1,
+			steps: [],
+			name: '',
+		})
 	}
 
 	return (
 		<>
-			<>
-				{isMakingTask ? (
-					<form
-						onSubmit={handleSubmit((taskRequest) => {
-							makeNewTask(taskRequest)
-						})}
-					>
-						<TitleText>Describe the task that you want to have broken down into steps:</TitleText>
-						<input type='text' {...register('task', { required: true, maxLength: 200 })} />
-						<p>{errors.task && 'This field has a limit of 200 characters.'}</p>
+			{taskInFocus.name == '' ? (
+				<>
+					{isMakingTask ? (
+						<form
+							onSubmit={handleSubmit((taskRequest) => {
+								makeNewTask(taskRequest)
+							})}
+						>
+							<TitleText>Describe the task that you want to have broken down into steps:</TitleText>
+							<input type='text' {...register('task', { required: true, maxLength: 200 })} />
+							<p>{errors.task && 'This field has a limit of 200 characters.'}</p>
 
-						<input type='submit' />
-						<Button onClick={() => setIsMakingTask(false)}>Cancel</Button>
-					</form>
-				) : (
-					<>
-						<Link to={'/'}>
-							<HomeIcon src={homeIcon} alt='home icon' />
-						</Link>
-						<VerticalBox>
-							<MarginBox>
-								<TitleText>What task do you want to break down?</TitleText>
-							</MarginBox>
-							<TaskBoxWrapper onClick={() => setIsMakingTask(true)}>
-								<AppBoxImage src={addIcon} alt='plus icon to add a new task' />
-								<TitleText>Make a new task</TitleText>
-							</TaskBoxWrapper>
-							{tasks.map((task) => (
-								<TaskBoxWrapper>
-									<TitleText>{task.task}</TitleText>
+							<input type='submit' />
+							<Button onClick={() => setIsMakingTask(false)}>Cancel</Button>
+						</form>
+					) : (
+						<>
+							<Link to={'/'}>
+								<HomeIcon src={homeIcon} alt='home icon' />
+							</Link>
+							<VerticalBox>
+								<MarginBox>
+									<TitleText>What task do you want to break down?</TitleText>
+								</MarginBox>
+								<TaskBoxWrapper onClick={() => setIsMakingTask(true)}>
+									<AppBoxImage src={addIcon} alt='plus icon to add a new task' />
+									<TitleText>Make a new task</TitleText>
 								</TaskBoxWrapper>
-							))}
-							<TaskBoxWrapper></TaskBoxWrapper>
-						</VerticalBox>
-					</>
-				)}
-			</>
+								{tasks.map((task) => (
+									<TaskBoxWrapper onClick={() => setTaskInFocus(task)}>
+										<TitleText>{task.name}</TitleText>
+									</TaskBoxWrapper>
+								))}
+								<TaskBoxWrapper></TaskBoxWrapper>
+							</VerticalBox>
+						</>
+					)}
+				</>
+			) : (
+				<StepPage clearTaskInFocus={clearTaskInFocus} taskInFocus={taskInFocus} />
+			)}
 		</>
 	)
 }

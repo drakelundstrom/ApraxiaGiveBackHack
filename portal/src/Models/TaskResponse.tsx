@@ -1,7 +1,7 @@
 import { Step } from './Step'
 
 export type TaskResponse = {
-	readonly id: string
-	readonly task: string
+	readonly id: number
+	readonly name: string
 	readonly steps: Step[]
 }
