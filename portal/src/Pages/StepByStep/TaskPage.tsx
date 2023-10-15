@@ -52,18 +52,22 @@ export const TaskPage = (): JSX.Element => {
 			{taskInFocus.name == '' ? (
 				<>
 					{isMakingTask ? (
-						<form
-							onSubmit={handleSubmit((taskRequest) => {
-								makeNewTask(taskRequest)
-							})}
-						>
-							<TitleText>Describe the task that you want to have broken down into steps:</TitleText>
-							<input type='text' {...register('name', { required: true, maxLength: 200 })} />
-							<p>{errors.name && 'This field has a limit of 200 characters.'}</p>
+						<VerticalBox>
+							<MarginBox>
+								<form
+									onSubmit={handleSubmit((taskRequest) => {
+										makeNewTask(taskRequest)
+									})}
+								>
+									<TitleText>Describe the task that you want to have broken down into steps:</TitleText>
+									<input type='text' {...register('name', { required: true, maxLength: 200 })} />
+									<p>{errors.name && 'This field has a limit of 200 characters.'}</p>
 
-							<input type='submit' />
-							<Button onClick={() => setIsMakingTask(false)}>Cancel</Button>
-						</form>
+									<Button id='submit'>Submit</Button>
+									<Button onClick={() => setIsMakingTask(false)}>Cancel</Button>
+								</form>
+							</MarginBox>
+						</VerticalBox>
 					) : (
 						<>
 							<Link to={'/'}>
