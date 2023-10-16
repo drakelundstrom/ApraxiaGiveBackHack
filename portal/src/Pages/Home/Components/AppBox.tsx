@@ -1,8 +1,6 @@
 import { BLACK, addOpacityToColor } from '../../../Style/Colors'
 import { LightTheme } from '../../../Style/Themes/LightTheme'
 import styled from 'styled-components'
-// import picture from '../../../assets/footsteps-sharp.svg'
-// import { STEPS_ROUTE } from '../../../Routes'
 import { Link } from 'react-router-dom'
 
 type AppBoxProps = {
