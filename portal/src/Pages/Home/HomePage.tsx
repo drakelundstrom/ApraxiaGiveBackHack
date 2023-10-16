@@ -21,7 +21,7 @@ export const HomePage = (): JSX.Element => {
 					<Header></Header>
 					<ProfileImage src={picture} alt='profile picture' />
 				</HeaderBox>
-				<SignUpBox title='Get Updates' description='Join our mailling list to hear about our indegogo and new versions of our app' picture={MailIcon} />
+				<SignUpBox title='Get Updates' description='Join our mailling list to hear about our indegogo campaign.' picture={MailIcon} />
 				<AppBox title='Step by Step' description='Breaking down overwelming challenges' redirectRoute={STEP_BY_STEP_ROUTE} picture={StepByStepIcon} />
 				<AppBox title='Decisions' description='Friendly help making decisions' redirectRoute={DECISIONS_ROUTE} picture={DecisionsIcon} />
 				<AppBox title='Finance Genie' description='(Not yet implimented): Checking if purchases will break the bank' redirectRoute={''} picture={eigthBallIcon} />

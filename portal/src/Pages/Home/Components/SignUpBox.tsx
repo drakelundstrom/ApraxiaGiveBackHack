@@ -19,6 +19,7 @@ export const SignUpBox = ({ picture, title, description }: AppBoxProps): JSX.Ele
 				<VerticalBox>
 					<TitleText>{title}</TitleText>
 					<DescriptionText>{description}</DescriptionText>
+					<DescriptionText>This app is a beta version and there are a lot more things to come!</DescriptionText>
 				</VerticalBox>
 			</AppBoxWrapper>
 		</a>
